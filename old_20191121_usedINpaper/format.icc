@@ -1,0 +1,68 @@
+
+//////
+void roo_center_title(TH1D *h1) {
+  h1->GetXaxis()->CenterTitle();
+  h1->GetYaxis()->CenterTitle();
+}
+void roo_center_title(TH2D *h2) {
+  h2->GetXaxis()->CenterTitle();
+  h2->GetYaxis()->CenterTitle();
+}
+
+void roo_title(TH1D *h1, TString x="", TString y="") {
+  h1->SetXTitle(x);
+  h1->SetYTitle(y);
+}
+void roo_title(TH2D *h1, TString x="", TString y="") {
+  h1->SetXTitle(x);
+  h1->SetYTitle(y);
+}
+
+void roo_titleDiv(TH1D *h1, int x, int y) {
+  h1->GetXaxis()->SetNdivisions(x);
+  h1->GetYaxis()->SetNdivisions(y);
+}
+
+void roo_titleDiv(TH2D *h1, int x, int y) {
+  h1->GetXaxis()->SetNdivisions(x);
+  h1->GetYaxis()->SetNdivisions(y);
+}
+
+double roo_h1_max(TH1D *h1) {
+  double max_val = 0;
+  for(int ibin=1; ibin<=h1->GetNbinsX(); ibin++) {
+    double content = h1->GetBinContent(ibin);
+    if( max_val<content ) max_val = content;
+  }
+  return max_val;
+}
+
+void roo_h1_min_max(TH1D *h1, double min, double max) {
+  h1->SetMinimum(min);
+  h1->SetMaximum(max);
+}
+
+void roo_offset(TH1D *h1, double x, double y) {
+  h1->GetXaxis()->SetTitleOffset(x);
+  h1->GetYaxis()->SetTitleOffset(y);
+}
+void roo_offset(TH2D *h1, double x, double y) {
+  h1->GetXaxis()->SetTitleOffset(x);
+  h1->GetYaxis()->SetTitleOffset(y);
+}
+
+void roo_canv_margin(TCanvas *canv, double b, double t, double l, double r)
+{
+  canv->SetBottomMargin(b);
+  canv->SetTopMargin(t);
+  canv->SetLeftMargin(l);
+  canv->SetRightMargin(r);
+}
+void roo_canv_margin(TVirtualPad *canv, double b, double t, double l, double r)
+{
+  canv->SetBottomMargin(b);
+  canv->SetTopMargin(t);
+  canv->SetLeftMargin(l);
+  canv->SetRightMargin(r);
+}
+

@@ -1,0 +1,20 @@
+///////////////////////////////////////////////////////////////
+ Nmu=15, Ndet=10
+ Rel.Bias from 10 million toys:
+ bias Poisson    0.00
+ bias Neyman    -6.38
+ bias Pearson    2.95
+ bias Gauss     -0.33
+ bias CNP       -0.29
+
+
+////////////////////////////////////////////////////////////////
+
+Color transparency
+SetFillColorAlpha(), allows to set a transparent color. In the following example the fill color of the histogram histo is set to blue with a transparency of 35%. The color kBlue itself remains fully opaque.
+
+histo->SetFillColorAlpha(kBlue, 0.35);
+The transparency is available on all platforms when the flag OpenGL.CanvasPreferGL is set to 1 in $ROOTSYS/etc/system.rootrc, or on Mac with the Cocoa backend. On the file output it is visible with PDF, PNG, Gif, JPEG, SVG, TeX... but not PostScript.
+
+
+
